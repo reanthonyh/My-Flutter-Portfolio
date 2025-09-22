@@ -1,0 +1,23 @@
+include: package:flutter_lints/flutter.yaml
+
+code-style:
+  format: true
+
+formatter:
+  page_width: 90
+  trailing_commas: automate
+
+analyzer:
+  errors:
+    depend_on_referenced_packages: ignore
+    unused_element: ignore
+
+linter:
+  rules:
+    prefer_const_constructors: true
+    avoid_print: false
+    prefer_single_quotes: true
+    prefer_final_fields: true
+    always_declare_return_types: true
+    prefer_asserts_with_message: true
+    use_key_in_widget_constructors: true

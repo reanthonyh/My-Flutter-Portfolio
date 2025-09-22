@@ -1,0 +1,21 @@
+{
+  "@@locale": "es",
+  "@@context": "Mi Portafolio",
+  "@@author": "reanthonyh",
+  "app_name": "Mi Portafolio",
+  "@app_name": {
+    "description": "Titulo de la aplicacion"
+  },
+  "about_me": "Sobre mi",
+  "@about_me": {
+    "description": "Texto de Sobre Mi"
+  },
+  "projects": "Projectos",
+  "@projects": {
+    "description": "Texto de Projectos"
+  },
+  "contact": "Contacto",
+  "@contact": {
+    "description": "Texto de Contacto"
+  }
+}
