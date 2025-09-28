@@ -14,6 +14,7 @@ class SectionNavBar extends StatelessWidget {
         children: [
           InkWell(onTap: () => onSectionTap(1), child: const Text('Sobre Mi')),
           InkWell(onTap: () => onSectionTap(2), child: const Text('Trabajos')),
+          InkWell(onTap: () => onSectionTap(3), child: const Text('Projectos')),
           InkWell(onTap: () => onSectionTap(3), child: const Text('Contacto')),
         ],
       ),

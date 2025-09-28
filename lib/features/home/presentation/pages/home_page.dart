@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/features/about_me/presentation/pages/about_me_page.dart';
 import 'package:my_portfolio/features/contact/presentation/pages/contact_page.dart';
+import 'package:my_portfolio/features/work/presentation/pages/works_page.dart';
 import 'package:my_portfolio/features/home/presentation/widgets/section_nav_bar.dart';
 import 'package:my_portfolio/features/home/presentation/widgets/top_bar.dart';
 import 'package:my_portfolio/features/projects/presentation/pages/projects_page.dart';
@@ -48,8 +49,9 @@ class _HomePageState extends State<HomePage> {
                   itemBuilder: (context, index) {
                     return switch (index) {
                       1 => const AboutMePage(),
-                      2 => const ProjectsPage(),
-                      3 => const ContactPage(),
+                      2 => const WorksPage(),
+                      3 => const ProjectsPage(),
+                      4 => const ContactPage(),
                       _ => Center(
                         child: Text(
                           'Home Content',
