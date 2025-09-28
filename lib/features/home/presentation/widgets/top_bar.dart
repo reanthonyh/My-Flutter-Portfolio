@@ -5,25 +5,46 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    final width = MediaQuery.sizeOf(context).width;
+
+    debugPrint("Width : $width");
+
+    final isWider = width > 1400;
+    final isNarrow = width < 800;
+
+    return SizedBox(
       height: 100,
       child: Row(
         children: [
-          Expanded(
-            child: Row(
-              children: [
-                Icon(Icons.circle, color: Colors.green),
-                Expanded(child: Text('Disponible para trabjar', maxLines: 2)),
-              ],
+          const Expanded(
+            child: ColoredBox(
+              color: Colors.red,
+              child: Row(
+                children: [
+                  Icon(Icons.circle, color: Colors.green),
+                  Expanded(child: Text('Disponible para trabjar', maxLines: 2)),
+                ],
+              ),
             ),
           ),
-          Expanded(flex: 3, child: FlutterLogo(size: 80)),
           Expanded(
-            child: Column(
-              children: [
-                Text('Porfolio', textAlign: TextAlign.end),
-                Text('2025', textAlign: TextAlign.end),
-              ],
+            flex: isWider
+                ? 3
+                : isNarrow
+                ? 2
+                : 1,
+            child: const FlutterLogo(size: 80),
+          ),
+          const Expanded(
+            child: ColoredBox(
+              color: Colors.blue,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Porfolio', textAlign: TextAlign.end),
+                  Text('2025', textAlign: TextAlign.end),
+                ],
+              ),
             ),
           ),
         ],

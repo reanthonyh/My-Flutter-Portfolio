@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/features/about_me/presentation/pages/about_me_page.dart';
 import 'package:my_portfolio/features/contact/presentation/pages/contact_page.dart';
-import 'package:my_portfolio/features/work/presentation/pages/works_page.dart';
-import 'package:my_portfolio/features/home/presentation/widgets/section_nav_bar.dart';
-import 'package:my_portfolio/features/home/presentation/widgets/top_bar.dart';
 import 'package:my_portfolio/features/projects/presentation/pages/projects_page.dart';
+import 'package:my_portfolio/features/work/presentation/pages/works_page.dart';
+
+import '../widgets/section_nav_bar.dart';
+import '../widgets/top_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: PageView.builder(
                   pageSnapping: true,
-                  itemCount: 4,
+                  itemCount: 5,
                   controller: _pageController,
                   itemBuilder: (context, index) {
                     return switch (index) {

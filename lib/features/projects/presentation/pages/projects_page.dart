@@ -8,7 +8,10 @@ class ProjectsPage extends StatelessWidget {
     return ListView.builder(
       itemCount: 20,
       itemBuilder: (context, index) {
-        return ListTile(leading: Icon(Icons.pedal_bike), title: Text("Card $index"));
+        return ListTile(
+          leading: const Icon(Icons.pedal_bike, size: 30),
+          title: Text("Card $index"),
+        );
       },
     );
   }
