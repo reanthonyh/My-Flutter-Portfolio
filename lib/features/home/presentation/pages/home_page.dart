@@ -39,8 +39,9 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const TopBar(),
+            TopBar(goHomeContent: () => changePage(0)),
             SectionNavBar(onSectionTap: changePage),
+
             Expanded(
               child: Center(
                 child: PageView.builder(
