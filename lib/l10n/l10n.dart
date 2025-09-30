@@ -106,6 +106,12 @@ abstract class AppLocalizations {
   /// **'Sobre mi'**
   String get about_me;
 
+  /// Texto de Trabajos
+  ///
+  /// In es, this message translates to:
+  /// **'Trabajos'**
+  String get works;
+
   /// Texto de Projectos
   ///
   /// In es, this message translates to:
@@ -117,6 +123,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Contacto'**
   String get contact;
+
+  /// Texto de Inicio
+  ///
+  /// In es, this message translates to:
+  /// **'Inicio'**
+  String get home;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

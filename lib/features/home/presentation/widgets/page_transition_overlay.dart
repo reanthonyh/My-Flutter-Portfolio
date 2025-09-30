@@ -12,8 +12,8 @@ class PageTransitionOverlay extends StatelessWidget {
 
   static const _slideBegin = Offset(1, 0);
   static const _slideEnd = Offset(-1, 0);
-  static const _fadeInterval = Interval(0.0, 0.5, curve: Curves.easeIn);
-  static const _fadeReverseInterval = Interval(0.5, 1.0, curve: Curves.easeOut);
+  static const _fadeInterval = Interval(0.0, 0.5, curve: Curves.decelerate);
+  static const _fadeReverseInterval = Interval(0.5, 1.0, curve: Curves.easeOutExpo);
   static const _textAlignment = Alignment(-0.9, 0.9);
 
   @override
@@ -39,21 +39,25 @@ class PageTransitionOverlay extends StatelessWidget {
             .value;
 
         final width = MediaQuery.sizeOf(context).width;
-        final isLight = MediaQuery.platformBrightnessOf(context) == Brightness.light;
 
         return Transform.translate(
           offset: Offset(slideOffset.dx * width, 0),
           child: Opacity(
             opacity: fadeOpacity,
-            child: Container(
-              color: isLight ? Colors.white : Colors.black,
-              alignment: _textAlignment,
-              child: Text(
-                sectionName,
-                style: TextStyle(
-                  color: colorScheme.onSurface,
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
+            child: ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(20.0),
+              child: ColoredBox(
+                color: colorScheme.surfaceContainerLow,
+                child: Align(
+                  alignment: _textAlignment,
+                  child: Text(
+                    sectionName,
+                    style: TextStyle(
+                      color: colorScheme.onSurface,
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ),

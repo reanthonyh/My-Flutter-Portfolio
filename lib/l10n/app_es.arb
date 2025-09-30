@@ -10,6 +10,10 @@
   "@about_me": {
     "description": "Texto de Sobre Mi"
   },
+  "works": "Trabajos",
+  "@works": {
+    "description": "Texto de Trabajos"
+  },
   "projects": "Projectos",
   "@projects": {
     "description": "Texto de Projectos"
@@ -17,5 +21,9 @@
   "contact": "Contacto",
   "@contact": {
     "description": "Texto de Contacto"
+  },
+  "home": "Inicio",
+  "@home": {
+    "description": "Texto de Inicio"
   }
 }

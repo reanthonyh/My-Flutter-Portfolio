@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/features/about_me/presentation/pages/about_me_page.dart';
 import 'package:my_portfolio/features/contact/presentation/pages/contact_page.dart';
-import 'package:my_portfolio/features/home/domain/entities/page_config.dart';
 import 'package:my_portfolio/features/projects/presentation/pages/projects_page.dart';
 import 'package:my_portfolio/features/work/presentation/pages/works_page.dart';
+import 'package:my_portfolio/l10n/l10n.dart';
 
 import '../widgets/home_content.dart';
 import '../widgets/page_transition_overlay.dart';
@@ -18,27 +18,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  static const _pages = [
+    HomeContent(),
+    AboutMePage(),
+    WorksPage(),
+    ProjectsPage(),
+    ContactPage(),
+  ];
+
   int _currentSection = 0;
-  late final PageController _pageController;
-  late AnimationController _overlayController;
   bool _showOverlay = false;
 
-  static const _pages = [
-    PageConfig('Home', HomeContent()),
-    PageConfig('About Me', AboutMePage()),
-    PageConfig('Works', WorksPage()),
-    PageConfig('Projects', ProjectsPage()),
-    PageConfig('Contact', ContactPage()),
-  ];
+  late final PageController _pageController;
+  late AnimationController _overlayController;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    _overlayController = AnimationController(
-      duration: const Duration(milliseconds: 800),
-      vsync: this,
-    );
+    _overlayController = AnimationController(duration: Durations.extralong2, vsync: this);
   }
 
   void _changePage(int indexPage) async {
@@ -52,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     await _overlayController.animateTo(0.5);
     _pageController.jumpToPage(indexPage);
 
-    await Future.delayed(Durations.long3);
+    await Future.delayed(Durations.long2);
     await _overlayController.forward();
 
     setState(() => _showOverlay = false);
@@ -60,13 +58,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   @override
-  void dispose() {
-    _overlayController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final intl = AppLocalizations.of(context)!;
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -80,12 +73,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   PageView.builder(
                     controller: _pageController,
                     itemCount: _pages.length,
-                    itemBuilder: (context, index) => Center(child: _pages[index].page),
+                    itemBuilder: (context, index) =>
+                        Center(child: _pages.elementAt(index)),
                   ),
+
                   if (_showOverlay)
                     PageTransitionOverlay(
                       controller: _overlayController,
-                      sectionName: _pages[_currentSection].name,
+                      sectionName: switch (_currentSection) {
+                        1 => intl.about_me,
+                        2 => intl.works,
+                        3 => intl.projects,
+                        4 => intl.contact,
+                        _ => intl.home,
+                      },
                     ),
                 ],
               ),
@@ -94,5 +95,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _overlayController.dispose();
+    super.dispose();
   }
 }
