@@ -1,50 +1,45 @@
 import 'package:flutter/material.dart';
 
-class ProjectsPage extends StatefulWidget {
+class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
 
-  @override
-  State<ProjectsPage> createState() => _ProjectsPageState();
-}
-
-class _ProjectsPageState extends State<ProjectsPage> {
-  final List<Map<String, String>> _items = [
-    {'title': 'Card 001', 'subtitle': 'Date : 2025 - 05 - 20 => 2026 - 12 -01'},
-    {'title': 'Card 002', 'subtitle': 'Date : 2025 - 05 - 20 => 2026 - 12 -01'},
-    {'title': 'Card 003', 'subtitle': 'Date : 2025 - 05 - 20 => 2026 - 12 -01'},
-    {'title': 'Card 004', 'subtitle': 'Date : 2025 - 05 - 20 => 2026 - 12 -01'},
-  ];
-  bool _isReady = false;
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) setState(() => _isReady = true);
-    });
+  Future<List<Map<String, String>>> _loadProjects() async {
+    await Future.delayed(Durations.short3);
+    return [
+      {'title': 'Card 001', 'subtitle': 'Date : 2021 - 05 - 20 => 2022 - 12 -01'},
+      {'title': 'Card 002', 'subtitle': 'Date : 2022 - 05 - 21 => 2023 - 12 -01'},
+      {'title': 'Card 003', 'subtitle': 'Date : 2024 - 05 - 23 => 2024 - 12 -01'},
+      {'title': 'Card 004', 'subtitle': 'Date : 2025 - 05 - 20 => 2026 - 12 -01'},
+    ];
   }
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 200),
-      child: _isReady
-          ? ListView.builder(
-              key: const ValueKey('list'),
-              cacheExtent: 200,
-              itemCount: _items.length,
-              itemBuilder: (context, index) {
-                final item = _items[index];
-                return ListTile(
-                  contentPadding: const EdgeInsets.all(8.5),
-                  leading: const Icon(Icons.pedal_bike, size: 30),
-                  title: Text(item['title']!),
-                  subtitle: Text(item['subtitle']!),
-                  onTap: () {},
-                );
+    return FutureBuilder<List<Map<String, String>>>(
+      future: _loadProjects(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
+
+        return ListView.builder(
+          cacheExtent: 200,
+          itemCount: snapshot.data!.length,
+          itemBuilder: (context, index) {
+            final item = snapshot.data![index];
+            return ListTile(
+              contentPadding: const EdgeInsets.all(8.5),
+              leading: const Icon(Icons.pedal_bike, size: 30),
+              title: Text(item['title']!),
+              subtitle: Text(item['subtitle']!),
+              onFocusChange: (value) {
+                debugPrint("Focus - ${item['title']} -> $value");
               },
-            )
-          : const SizedBox.shrink(),
+              onTap: () {},
+            );
+          },
+        );
+      },
     );
   }
 }
