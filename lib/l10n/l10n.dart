@@ -129,6 +129,18 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Inicio'**
   String get home;
+
+  /// Texto de la descripcion de quien soy
+  ///
+  /// In es, this message translates to:
+  /// **'Soy un desarrollador de aplicaciones moviles especializado en Flutter, pero con bases solidas en nativo con Kotlin y Swift, para Android e iOS respectivamente.'**
+  String get me_description;
+
+  /// Texto de Enlaces
+  ///
+  /// In es, this message translates to:
+  /// **'Enlaces'**
+  String get links;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

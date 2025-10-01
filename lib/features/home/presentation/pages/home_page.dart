@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _pageController = PageController();
-    _overlayController = AnimationController(duration: Durations.extralong2, vsync: this);
+    _overlayController = AnimationController(duration: Durations.extralong3, vsync: this);
   }
 
   void _changePage(int indexPage) async {
@@ -48,12 +48,15 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     });
 
     await _overlayController.animateTo(0.5);
+
+    await Future.delayed(Durations.long1);
+
     _pageController.jumpToPage(indexPage);
 
-    await Future.delayed(Durations.long2);
     await _overlayController.forward();
 
     setState(() => _showOverlay = false);
+
     _overlayController.reset();
   }
 
@@ -72,6 +75,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 children: [
                   PageView.builder(
                     controller: _pageController,
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: _pages.length,
                     itemBuilder: (context, index) =>
                         Center(child: _pages.elementAt(index)),

@@ -25,4 +25,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get home => 'Inicio';
+
+  @override
+  String get me_description =>
+      'Soy un desarrollador de aplicaciones moviles especializado en Flutter, pero con bases solidas en nativo con Kotlin y Swift, para Android e iOS respectivamente.';
+
+  @override
+  String get links => 'Enlaces';
 }

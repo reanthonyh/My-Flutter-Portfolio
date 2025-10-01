@@ -25,5 +25,13 @@
   "home": "Inicio",
   "@home": {
     "description": "Texto de Inicio"
+  },
+  "me_description": "Soy un desarrollador de aplicaciones moviles especializado en Flutter, pero con bases solidas en nativo con Kotlin y Swift, para Android e iOS respectivamente.",
+  "@me_description": {
+    "description": "Texto de la descripcion de quien soy"
+  },
+  "links": "Enlaces",
+  "@links": {
+    "description": "Texto de Enlaces"
   }
 }
