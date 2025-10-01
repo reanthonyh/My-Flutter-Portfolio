@@ -61,7 +61,7 @@ class PageTransitionOverlay extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20.0),
-                    color: colorScheme.surfaceContainerLow.withValues(alpha: 0.8),
+                    color: colorScheme.surfaceContainerLow.withValues(alpha: 0.95),
                     boxShadow: [
                       BoxShadow(
                         color: colorScheme.shadow.withValues(alpha: 0.1),

@@ -30,7 +30,7 @@ class AboutMePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Anthony Hernandez Flores", style: textTheme.displayMedium),
+                      Text('Anthony Hernandez Flores', style: textTheme.displayMedium),
                       Text(intl.me_description, style: textTheme.titleLarge),
                     ],
                   ),
@@ -42,15 +42,15 @@ class AboutMePage extends StatelessWidget {
         ),
 
         const SizedBox(height: 12),
-        SizedBox(height: 90, child: Text("Sobre Mi", style: textTheme.headlineMedium)),
+        SizedBox(height: 90, child: Text('Sobre Mi', style: textTheme.headlineMedium)),
         const SizedBox(height: 20),
 
-        Text("Sobre Mi", style: textTheme.bodyLarge),
-        Text("Sobre Mi", style: textTheme.bodyMedium),
+        Text('Sobre Mi', style: textTheme.bodyLarge),
+        Text('Sobre Mi', style: textTheme.bodyMedium),
 
         const SizedBox(height: 20),
 
-        Text("Enlaces", style: textTheme.labelMedium),
+        Text(intl.links, style: textTheme.labelMedium),
       ],
     );
   }

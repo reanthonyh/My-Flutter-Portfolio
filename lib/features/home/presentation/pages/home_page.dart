@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _pageController = PageController();
-    _overlayController = AnimationController(duration: Durations.extralong3, vsync: this);
+    _overlayController = AnimationController(duration: Durations.extralong2, vsync: this);
   }
 
   void _changePage(int indexPage) async {
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
     await _overlayController.animateTo(0.5);
 
-    await Future.delayed(Durations.long1);
+    await Future.delayed(Durations.medium1);
 
     _pageController.jumpToPage(indexPage);
 
