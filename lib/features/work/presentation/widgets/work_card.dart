@@ -126,9 +126,9 @@ class _WorkCardContent extends StatelessWidget {
           Text(work.description, style: theme.textTheme.bodyMedium),
 
           if (work.technologies.isNotEmpty)
-            _buildSection(
-              'Technologies:',
-              Wrap(
+            _WorkSection(
+              title: 'Technologies:',
+              content: Wrap(
                 spacing: 8,
                 runSpacing: 4,
                 children: work.technologies
@@ -140,12 +140,11 @@ class _WorkCardContent extends StatelessWidget {
                     )
                     .toList(),
               ),
-              theme,
             ),
           if (work.projects.isNotEmpty)
-            _buildSection(
-              'Key Projects:',
-              Column(
+            _WorkSection(
+              title: 'Key Projects:',
+              content: Column(
                 children: work.projects
                     .map(
                       (project) => Padding(
@@ -161,23 +160,30 @@ class _WorkCardContent extends StatelessWidget {
                     )
                     .toList(),
               ),
-              theme,
             ),
           if (work.imageUrls.isNotEmpty)
-            _buildSection(
-              'Gallery:',
-              SizedBox(
+            _WorkSection(
+              title: 'Gallery:',
+              content: SizedBox(
                 height: 120,
                 child: ImageNetworkSlider(height: 200, imageUrls: work.imageUrls),
               ),
-              theme,
             ),
         ],
       ),
     );
   }
+}
 
-  Widget _buildSection(String title, Widget content, ThemeData theme) {
+class _WorkSection extends StatelessWidget {
+  const _WorkSection({required this.title, required this.content});
+
+  final String title;
+  final Widget content;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       spacing: 8,
       crossAxisAlignment: CrossAxisAlignment.start,
