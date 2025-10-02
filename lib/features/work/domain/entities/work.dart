@@ -10,6 +10,9 @@ abstract class Work with _$Work {
     required String company,
     required DateTime start,
     DateTime? end,
-    // List Projects
+    required String description,
+    @Default([]) List<String> projects,
+    @Default([]) List<String> imageUrls,
+    @Default([]) List<String> technologies,
   }) = _Work;
 }
