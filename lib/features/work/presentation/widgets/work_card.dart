@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' hide Slider;
+import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/extensions/date_time_extensions.dart';
 import 'package:my_portfolio/core/presentation/widgets/slider.dart';
 import 'package:my_portfolio/features/work/domain/entities/work.dart';
 
@@ -65,14 +66,6 @@ class _WorkCardHeader extends StatelessWidget {
   final Work work;
   final bool isExpanded;
 
-  String _formatDateRange() {
-    final startStr = '${work.start.month}/${work.start.year}';
-    final endStr = work.end != null
-        ? '${work.end!.month}/${work.end!.year}'
-        : 'Actualidad';
-    return '$startStr - $endStr';
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -99,7 +92,7 @@ class _WorkCardHeader extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  _formatDateRange(),
+                  work.start.formatDateRange(work.end),
                   style: theme.textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
                 ),
               ],
@@ -175,7 +168,7 @@ class _WorkCardContent extends StatelessWidget {
               'Gallery:',
               SizedBox(
                 height: 120,
-                child: Slider(height: 200, imageUrls: work.imageUrls),
+                child: ImageNetworkSlider(height: 200, imageUrls: work.imageUrls),
               ),
               theme,
             ),

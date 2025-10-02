@@ -2,18 +2,18 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class Slider extends StatefulWidget {
-  const Slider({super.key, this.height, this.width, required this.imageUrls});
+class ImageNetworkSlider extends StatefulWidget {
+  const ImageNetworkSlider({super.key, this.height, this.width, required this.imageUrls});
 
   final double? height;
   final double? width;
   final List<String> imageUrls;
 
   @override
-  State<Slider> createState() => _SliderState();
+  State<ImageNetworkSlider> createState() => _ImageNetworkSliderState();
 }
 
-class _SliderState extends State<Slider> {
+class _ImageNetworkSliderState extends State<ImageNetworkSlider> {
   late PageController _pageController;
   Timer? _timer;
   int _currentPage = 0;
