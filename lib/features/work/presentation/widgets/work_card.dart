@@ -165,7 +165,7 @@ class _WorkCardContent extends StatelessWidget {
             _WorkSection(
               title: 'Gallery:',
               content: SizedBox(
-                height: 120,
+                height: 200,
                 child: ImageNetworkSlider(height: 200, imageUrls: work.imageUrls),
               ),
             ),
