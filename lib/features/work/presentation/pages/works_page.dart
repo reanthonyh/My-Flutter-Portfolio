@@ -89,38 +89,15 @@ class WorksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final intl = AppLocalizations.of(context)!;
-
-    final colorScheme = ColorScheme.of(context);
     final textTheme = TextTheme.of(context);
 
-    return CustomScrollView(
-      slivers: [
-        SliverAppBar(
-          expandedHeight: 120,
-          floating: false,
-          pinned: true,
-          flexibleSpace: FlexibleSpaceBar(
-            title: Text(
-              intl.works,
-              style: textTheme.headlineMedium?.copyWith(
-                color: colorScheme.onPrimaryContainer,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            centerTitle: true,
-          ),
-          backgroundColor: colorScheme.primaryContainer,
-        ),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          sliver: SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              final work = _sampleWorks[index];
-
-              return WorkCard(work: work);
-            }, childCount: _sampleWorks.length),
-          ),
-        ),
+    return ListView(
+      key: const ValueKey('Works'),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+      children: [
+        SizedBox(height: 85, child: Text(intl.works, style: textTheme.displaySmall)),
+        const SizedBox(height: 15),
+        ..._sampleWorks.map((work) => WorkCard(work: work)),
       ],
     );
   }
