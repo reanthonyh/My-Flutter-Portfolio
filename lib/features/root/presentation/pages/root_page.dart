@@ -19,7 +19,7 @@ final class RootApp extends StatelessWidget {
 
     final darkTheme = ThemeData.from(
       colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.red,
+        seedColor: Colors.teal,
         brightness: Brightness.dark,
       ),
       textTheme: textTheme.apply(

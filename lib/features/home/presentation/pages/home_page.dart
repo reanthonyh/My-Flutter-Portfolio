@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/constants/paddings.dart';
 import 'package:my_portfolio/features/about_me/presentation/pages/about_me_page.dart';
 import 'package:my_portfolio/features/contact/presentation/pages/contact_page.dart';
 import 'package:my_portfolio/features/projects/presentation/pages/projects_page.dart';
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     final intl = AppLocalizations.of(context)!;
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: AppPaddings.medium,
         child: Column(
           children: [
             TopBar(goHomeContent: () => _changePage(0)),

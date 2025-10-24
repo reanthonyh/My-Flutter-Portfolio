@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/constants/paddings.dart';
 import 'package:my_portfolio/l10n/l10n.dart';
 
 class AboutMePage extends StatelessWidget {
@@ -11,7 +12,7 @@ class AboutMePage extends StatelessWidget {
 
     return ListView(
       key: const ValueKey('AboutMe'),
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+      padding: AppPaddings.page,
       children: [
         SizedBox(height: 85, child: Text(intl.about_me, style: textTheme.displaySmall)),
         const SizedBox(height: 15),
@@ -19,7 +20,7 @@ class AboutMePage extends StatelessWidget {
         SizedBox(
           height: 250,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 50),
+            padding: AppPaddings.sectionContent,
             child: Row(
               children: [
                 Flexible(

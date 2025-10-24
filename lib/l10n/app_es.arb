@@ -33,5 +33,17 @@
   "links": "Enlaces",
   "@links": {
     "description": "Texto de Enlaces"
+  },
+  "availability_positive": "Disponible para nuevos retos",
+  "@availability_positive": {
+    "description": "Texto que sirve para mostrar que estoy disponible para trabajar en nuevos puestos"
+  },
+  "availability_negative": "No disponible para trabajos",
+  "@availability_negative": {
+    "description": "Texto que indica que en estos momentos no estoy disponible para nuevos trabajos"
+  },
+  "portfolio": "Portafolio",
+  "@portfolio": {
+    "description": "Texto de Portafolio"
   }
 }

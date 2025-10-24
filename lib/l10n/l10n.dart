@@ -141,6 +141,24 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Enlaces'**
   String get links;
+
+  /// Texto que sirve para mostrar que estoy disponible para trabajar en nuevos puestos
+  ///
+  /// In es, this message translates to:
+  /// **'Disponible para nuevos retos'**
+  String get availability_positive;
+
+  /// Texto que indica que en estos momentos no estoy disponible para nuevos trabajos
+  ///
+  /// In es, this message translates to:
+  /// **'No disponible para trabajos'**
+  String get availability_negative;
+
+  /// Texto de Portafolio
+  ///
+  /// In es, this message translates to:
+  /// **'Portafolio'**
+  String get portfolio;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

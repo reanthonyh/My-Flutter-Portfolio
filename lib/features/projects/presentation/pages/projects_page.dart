@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/constants/paddings.dart';
 
 class ProjectsPage extends StatelessWidget {
   const ProjectsPage({super.key});
@@ -28,7 +29,7 @@ class ProjectsPage extends StatelessWidget {
           itemBuilder: (context, index) {
             final item = snapshot.data![index];
             return ListTile(
-              contentPadding: const EdgeInsets.all(8.5),
+              contentPadding: AppPaddings.listItem,
               leading: const Icon(Icons.pedal_bike, size: 30),
               title: Text(item['title']!),
               subtitle: Text(item['subtitle']!),

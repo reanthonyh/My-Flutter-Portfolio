@@ -17,6 +17,7 @@ class ImageNetworkSlider extends StatefulWidget {
 
 class _ImageNetworkSliderState extends State<ImageNetworkSlider> {
   late PageController _pageController;
+
   Timer? _timer;
   int _currentPage = 0;
 
@@ -41,13 +42,6 @@ class _ImageNetworkSliderState extends State<ImageNetworkSlider> {
   }
 
   @override
-  void dispose() {
-    _timer?.cancel();
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: widget.height,
@@ -67,12 +61,19 @@ class _ImageNetworkSliderState extends State<ImageNetworkSlider> {
             ),
     );
   }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
 }
 
 class _UniqueImage extends StatelessWidget {
-  const _UniqueImage({required this.imageUrl});
-
   final String imageUrl;
+
+  const _UniqueImage({required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
