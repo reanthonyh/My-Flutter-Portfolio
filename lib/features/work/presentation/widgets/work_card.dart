@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/paddings.dart';
 import 'package:my_portfolio/core/extensions/date_time_extensions.dart';
-import 'package:my_portfolio/core/presentation/widgets/slider.dart';
+import 'package:my_portfolio/core/presentation/widgets/image_network_slider.dart';
 import 'package:my_portfolio/features/work/domain/entities/work.dart';
 
 class WorkCard extends StatefulWidget {

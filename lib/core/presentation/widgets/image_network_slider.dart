@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_single_quotes
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -110,7 +108,7 @@ class _UniqueImage extends StatelessWidget {
         );
       },
       errorBuilder: (context, error, stackTrace) {
-        debugPrint("Image error: $error || $stackTrace");
+        debugPrint('Image error: $error || $stackTrace');
         return const Icon(Icons.error, size: 64);
       },
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/core/constants/paddings.dart';
+import 'package:my_portfolio/core/presentation/widgets/shader_background.dart';
 import 'package:my_portfolio/features/about_me/presentation/pages/about_me_page.dart';
 import 'package:my_portfolio/features/contact/presentation/pages/contact_page.dart';
 import 'package:my_portfolio/features/projects/presentation/pages/projects_page.dart';
@@ -74,6 +75,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Expanded(
               child: Stack(
                 children: [
+                  // Shader background
+                  const ShaderBackground(),
+                  // Page content
                   PageView.builder(
                     controller: _pageController,
                     physics: const NeverScrollableScrollPhysics(),
@@ -81,7 +85,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     itemBuilder: (context, index) =>
                         Center(child: _pages.elementAt(index)),
                   ),
-
+                  // Page Transition Overlay
                   if (_showOverlay)
                     PageTransitionOverlay(
                       controller: _overlayController,

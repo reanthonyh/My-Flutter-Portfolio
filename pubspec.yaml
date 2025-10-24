@@ -34,4 +34,4 @@ flutter:
     - assets/images/
 
   shaders:
-    - shaders/matrix.frag
+    - shaders/animated_gradient.frag
