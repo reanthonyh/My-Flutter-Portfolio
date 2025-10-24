@@ -1,1 +1,0 @@
- /home/anthony/Dev/my_flutter_portfolio/lib/l10n/l10n_es.dart /home/anthony/Dev/my_flutter_portfolio/lib/l10n/l10n.dart:  /home/anthony/Dev/my_flutter_portfolio/l10n.yaml /home/anthony/Dev/my_flutter_portfolio/lib/l10n/app_es.arb
