@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/constants/paddings.dart';
 import 'package:my_portfolio/core/extensions/date_time_extensions.dart';
-import 'package:my_portfolio/core/presentation/widgets/slider.dart';
+import 'package:my_portfolio/core/presentation/widgets/image_network_slider.dart';
 import 'package:my_portfolio/features/work/domain/entities/work.dart';
 
 class WorkCard extends StatefulWidget {
@@ -35,7 +36,7 @@ class _WorkCardState extends State<WorkCard> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: AppPaddings.cardMargin,
       elevation: 2,
       child: InkWell(
         onTap: _toggle,
@@ -44,7 +45,7 @@ class _WorkCardState extends State<WorkCard> with SingleTickerProviderStateMixin
           children: [
             _WorkCardHeader(work: widget.work, isExpanded: _isExpanded),
             SizeTransition(
-              sizeFactor: CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+              sizeFactor: CurvedAnimation(parent: _controller, curve: Curves.easeInExpo),
               child: _WorkCardContent(work: widget.work),
             ),
           ],
@@ -69,8 +70,9 @@ class _WorkCardHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: AppPaddings.cardContent,
       child: Row(
         children: [
           Expanded(
@@ -118,20 +120,20 @@ class _WorkCardContent extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+      padding: AppPaddings.cardContentBottom,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Divider(),
           Text(work.description, style: theme.textTheme.bodyMedium),
 
-          if (work.technologies.isNotEmpty)
+          if (work.hasTechnologies)
             _WorkSection(
               title: 'Technologies:',
               content: Wrap(
                 spacing: 8,
                 runSpacing: 4,
-                children: work.technologies
+                children: work.technologies!
                     .map(
                       (tech) => Chip(
                         label: Text(tech, style: const TextStyle(fontSize: 12)),
@@ -141,14 +143,14 @@ class _WorkCardContent extends StatelessWidget {
                     .toList(),
               ),
             ),
-          if (work.projects.isNotEmpty)
+          if (work.hasProjects)
             _WorkSection(
               title: 'Key Projects:',
               content: Column(
-                children: work.projects
+                children: work.projects!
                     .map(
                       (project) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        padding: AppPaddings.chipSpacing,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -161,12 +163,12 @@ class _WorkCardContent extends StatelessWidget {
                     .toList(),
               ),
             ),
-          if (work.imageUrls.isNotEmpty)
+          if (work.hasImages)
             _WorkSection(
               title: 'Gallery:',
               content: SizedBox(
                 height: 320,
-                child: ImageNetworkSlider(height: 200, imageUrls: work.imageUrls),
+                child: ImageNetworkSlider(height: 200, imageUrls: work.imageUrls!),
               ),
             ),
         ],
@@ -184,6 +186,7 @@ class _WorkSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return Column(
       spacing: 8,
       crossAxisAlignment: CrossAxisAlignment.start,

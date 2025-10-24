@@ -64,7 +64,7 @@ class PageTransitionOverlay extends StatelessWidget {
                     color: colorScheme.surfaceContainerLow.withValues(alpha: 0.95),
                     boxShadow: [
                       BoxShadow(
-                        color: colorScheme.shadow.withValues(alpha: 0.1),
+                        color: colorScheme.shadow.withValues(alpha: 0.15),
                         blurRadius: 20,
                         spreadRadius: 0,
                         offset: const Offset(0, 10),
@@ -73,15 +73,7 @@ class PageTransitionOverlay extends StatelessWidget {
                   ),
                   child: Align(
                     alignment: _textAlignment,
-                    child: Text(
-                      sectionName,
-                      style: TextStyle(
-                        color: colorScheme.onSurface,
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 2.0,
-                      ),
-                    ),
+                    child: Text(sectionName, style: TextTheme.of(context).displayLarge),
                   ),
                 ),
               ),

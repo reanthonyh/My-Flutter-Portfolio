@@ -32,4 +32,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get links => 'Enlaces';
+
+  @override
+  String get availability_positive => 'Disponible para nuevos retos';
+
+  @override
+  String get availability_negative => 'No disponible para trabajos';
+
+  @override
+  String get portfolio => 'Portafolio';
 }

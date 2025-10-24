@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/l10n/l10n.dart';
 
 class SectionNavBar extends StatelessWidget {
   const SectionNavBar({super.key, required this.onSectionTap});
@@ -7,15 +8,17 @@ class SectionNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final intl = AppLocalizations.of(context)!;
+
     return SizedBox(
       height: 60,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          InkWell(onTap: () => onSectionTap(1), child: const Text('Sobre Mi')),
-          InkWell(onTap: () => onSectionTap(2), child: const Text('Trabajos')),
-          InkWell(onTap: () => onSectionTap(3), child: const Text('Projectos')),
-          InkWell(onTap: () => onSectionTap(4), child: const Text('Contacto')),
+          InkWell(onTap: () => onSectionTap(1), child: Text(intl.about_me)),
+          InkWell(onTap: () => onSectionTap(2), child: Text(intl.works)),
+          InkWell(onTap: () => onSectionTap(3), child: Text(intl.projects)),
+          InkWell(onTap: () => onSectionTap(4), child: Text(intl.contact)),
         ],
       ),
     );

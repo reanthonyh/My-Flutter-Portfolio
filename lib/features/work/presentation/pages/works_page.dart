@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/constants/paddings.dart';
 import 'package:my_portfolio/features/work/domain/entities/work.dart';
 import 'package:my_portfolio/features/work/presentation/widgets/work_card.dart';
 import 'package:my_portfolio/l10n/l10n.dart';
@@ -93,7 +94,7 @@ class WorksPage extends StatelessWidget {
 
     return ListView(
       key: const ValueKey('Works'),
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+      padding: AppPaddings.page,
       children: [
         SizedBox(height: 85, child: Text(intl.works, style: textTheme.displaySmall)),
         const SizedBox(height: 15),

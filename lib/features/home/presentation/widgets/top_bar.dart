@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/core/extensions/size_device_extensions.dart';
+import 'package:my_portfolio/l10n/l10n.dart';
 
 class TopBar extends StatelessWidget {
-  const TopBar({super.key, required this.goHomeContent});
+  const TopBar({super.key, required this.goHomeContent, this.isAvailable = true});
 
   final VoidCallback goHomeContent;
+  final bool isAvailable;
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-
-    final isWider = width > 1400;
-    final isNarrow = width < 800;
+    final deviceSize = MediaQuery.sizeOf(context);
 
     return SizedBox(
       height: 100,
@@ -23,9 +23,9 @@ class TopBar extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: isWider
+            flex: deviceSize.isWider
                 ? 3
-                : isNarrow
+                : deviceSize.isNarrow
                 ? 2
                 : 1,
             child: GestureDetector(
@@ -45,12 +45,14 @@ class _FolioInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final intl = AppLocalizations.of(context)!;
+
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text('Porfolio', textAlign: TextAlign.end),
-        Text('2025', textAlign: TextAlign.end),
+        Text(intl.portfolio, textAlign: TextAlign.end),
+        const Text('2025', textAlign: TextAlign.end),
       ],
     );
   }
@@ -63,6 +65,8 @@ class _Availability extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final intl = AppLocalizations.of(context)!;
+
     return Row(
       spacing: 4,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -71,7 +75,7 @@ class _Availability extends StatelessWidget {
         Icon(Icons.circle, color: isAvailable ? Colors.green : Colors.red, size: 20),
         Expanded(
           child: Text(
-            isAvailable ? 'Disponible para nuevos retos' : 'No disponible para trabajos',
+            isAvailable ? intl.availability_positive : intl.availability_negative,
             maxLines: 2,
           ),
         ),
