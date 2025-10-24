@@ -1,0 +1,1 @@
+{"inputs":["/opt/SDKs/flutter/packages/flutter_tools/lib/src/build_system/targets/localizations.dart","/home/anthony/Dev/my_flutter_portfolio/l10n.yaml","/home/anthony/Dev/my_flutter_portfolio/lib/l10n/app_es.arb"],"outputs":["/home/anthony/Dev/my_flutter_portfolio/lib/l10n/l10n_es.dart","/home/anthony/Dev/my_flutter_portfolio/lib/l10n/l10n.dart"]}
